@@ -38,6 +38,7 @@ void dictionary::print()
 
 void dictionary::sort()
 {
+    std::cout << "Sorting with Selection Sort..." << std::endl;
     for (int i = 0; i < words.size(); i++)
     {
         std::string min = words[i];
@@ -52,6 +53,7 @@ void dictionary::sort()
         }
         std::swap(words[i], words[minIndex]);
     }
+    std::cout << "Sorting Complete!" << std::endl;
 }
 
 bool dictionary::search(std::string w)

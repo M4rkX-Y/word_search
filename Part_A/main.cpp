@@ -1,22 +1,23 @@
 #include "grid.h"
 #include "dictionary.h"
 
-void findMatches();
+void findMatches(std::string grid_name);
 
 int main()
 {
-    std::ifstream f("input 30-3");
-    grid g(f);
-    g.print();
+    std::string grid_name = "input30-3";
+    findMatches(grid_name);
     return 0;
 }
 
-void findMatches()
+void findMatches(std::string grid_name)
 {
     dictionary d;
-    std::ifstream f("dictionary-2");
-    d.readFile(f);
+    std::ifstream df("dictionary-2");
+    d.readFile(df);
     d.sort();
-    d.print();
+    std::ifstream gf(grid_name);
+    grid g(gf);
+    g.print();
     std::cout << d.search("deafly");
 }

@@ -5,15 +5,17 @@ grid::grid(std::ifstream &f)
     if (f.is_open())
     {
         f >> rows >> cols;
-        std::vector<std::vector<char>> m(rows, std::vector<char>(cols));
         for (int i = 0; i < rows; i++)
         {
+            std::vector<char> r;
             for (int j = 0; j < cols; j++)
             {
-                f >> m[i][j];
+                char c;
+                f >> c;
+                r.push_back(c);
             }
+            matrix.push_back(r);
         }
-        matrix = m;
     }
     f.close();
 }
