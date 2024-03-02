@@ -66,7 +66,7 @@ bool dictionary::search(std::string w)
     {
         mid = std::floor((first + last) / 2);
         midValue = words[mid];
-        if (midValue.compare(w) == 0)
+        if (midValue == w)
         {
             return true;
         }

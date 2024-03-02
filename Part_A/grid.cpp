@@ -31,3 +31,8 @@ void grid::print()
         std::cout << std::endl;
     }
 }
+
+char grid::getValue(int r, int c)
+{
+    return matrix[r][c];
+}
