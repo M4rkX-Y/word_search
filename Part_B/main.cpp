@@ -1,17 +1,20 @@
 #include "grid.h"
 #include "dictionary.h"
 
-void findMatches(std::string grid_name);
+void search(int sortID);
 
 int main()
 {
-    std::string grid_name = "input15-2";
-    findMatches(grid_name);
+    search(1);
     return 0;
 }
 
-void findMatches(std::string grid_name)
+void search(int sortID)
 {
+    std::cout << "Welcome to Word Search!" << std::endl;
+    std::cout << "Input the Word Grid Name: ";
+    std::string grid_name;
+    std::cin >> grid_name;
     std::ifstream df("dictionary-2");
     std::ifstream gf(grid_name);
     grid g(gf);
@@ -19,7 +22,24 @@ void findMatches(std::string grid_name)
     g.print();
     dictionary d;
     d.readFile(df);
-    d.sort();
+    if (sortID == 0)
+    {
+        std::cout << "Sorting with Selection Sort..." << std::endl;
+        d.sort();
+        std::cout << "Sorting Complete!" << std::endl;
+    }
+    if (sortID == 1)
+    {
+        std::cout << "Sorting with Quick Sort..." << std::endl;
+        d.quicksort(0, (d.size() - 1));
+        std::cout << "Sorting Complete!" << std::endl;
+    }
+    if (sortID == 2)
+    {
+        std::cout << "Sorting with Heap Sort..." << std::endl;
+        d.heapsort();
+        std::cout << "Sorting Complete!" << std::endl;
+    }
     for (int i = 0; i < g.rows; i++)
     {
         for (int j = 0; j < g.cols; j++)

@@ -14,11 +14,14 @@ public:
     void readFile(std::ifstream &f);
     void print();
     void sort();
-    void quicksort();
+    void quicksort(int left, int right);
+    void heapsort();
     bool search(std::string w);
+    int size();
 
 private:
     std::vector<std::string> words;
+    int partition(int p, int r);
 };
 
 #endif

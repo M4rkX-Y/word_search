@@ -38,7 +38,6 @@ void dictionary::print()
 
 void dictionary::sort()
 {
-    std::cout << "Sorting with Selection Sort..." << std::endl;
     for (int i = 0; i < words.size(); i++)
     {
         std::string min = words[i];
@@ -53,11 +52,53 @@ void dictionary::sort()
         }
         std::swap(words[i], words[minIndex]);
     }
-    std::cout << "Sorting Complete!" << std::endl;
 }
 
-void dictionary::quicksort()
+void dictionary::quicksort(int left, int right)
 {
+    if (left >= right)
+    {
+        return;
+    }
+    int s = partition(left, right);
+    quicksort(left, s - 1);
+    quicksort(s + 1, right);
+}
+
+int dictionary::partition(int p, int r)
+{
+    std::string pivot = words[r];
+    int pivotIndex = p;
+    for (int j = p; j < r; j++)
+    {
+        if (words[j].compare(pivot) <= 0)
+        {
+            pivotIndex++;
+        }
+    }
+    std::swap(words[pivotIndex], words[r]);
+
+    int i = p, j = r;
+
+    while (i < pivotIndex && j > pivotIndex)
+    {
+
+        while (words[i].compare(pivot) <= 0)
+        {
+            i++;
+        }
+
+        while (words[j].compare(pivot) > 0)
+        {
+            j--;
+        }
+
+        if (i < pivotIndex && j > pivotIndex)
+        {
+            std::swap(words[i++], words[j--]);
+        }
+    }
+    return pivotIndex;
 }
 
 bool dictionary::search(std::string w)
@@ -84,4 +125,9 @@ bool dictionary::search(std::string w)
         }
     }
     return false;
+}
+
+int dictionary::size()
+{
+    return words.size();
 }
