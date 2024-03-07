@@ -19,7 +19,14 @@ make
 
 ## Usage
 
-Run the program by 
+Run the program by
+
 ```
 ./main
+```
+
+To clean up the object files, run
+
+```
+make clean
 ```
