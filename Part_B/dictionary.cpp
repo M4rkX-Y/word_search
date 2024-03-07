@@ -65,6 +65,17 @@ void dictionary::quicksort(int left, int right)
     quicksort(s + 1, right);
 }
 
+void dictionary::heapsort()
+{
+    heap<std::string> h;
+    h.initializeMaxHeap(words);
+    h.heapsort();
+    for (int i = 0; i < words.size(); i++)
+    {
+        words[i] = h.getItem(i);
+    }
+}
+
 int dictionary::partition(int p, int r)
 {
     std::string pivot = words[r];

@@ -1,4 +1,4 @@
-OBJS = dictionary.o grid.o main.o
+OBJS = heap.o dictionary.o grid.o main.o
 
 all: $(OBJS)
 	g++ -o main $(OBJS)
