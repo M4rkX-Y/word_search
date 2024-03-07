@@ -30,3 +30,11 @@ To clean up the object files, run
 ```
 make clean
 ```
+
+For Part B, to change the sorting algorithms change the integer parameter of the "search()" function in main.
+
+```
+search(0) // selection sort
+search(1) // quick sort
+search(2) // heap sort
+```
